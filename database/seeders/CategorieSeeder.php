@@ -18,11 +18,15 @@ class CategorieSeeder extends Seeder
     {
         $faker = Faker\Factory::create('fr_FR');
         $categorieDatas =[  "entrée","plat","dessert","petit déjeuner","boissons"];
-
+        //création de la liste (mys sql)
         foreach ($categorieDatas as $categorieData){
+            //création d'une nouvelle categorie
             $categorie = new Categorie();
+            //affectation d'un nom
             $categorie->nom = $categorieData;
+            //affectation d'une description
             $categorie->description = $faker->words(8, true);
+            //sauvegarde dans la BDD
             $categorie->save();
         }
     }
